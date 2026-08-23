@@ -19,6 +19,15 @@ export default function Navbar({ activeMobileSection, setActiveMobileSection, da
     if (isClickScrolling.current) return;
     isClickScrolling.current = true;
 
+    // 1. Skroluj glatko do željene sekcije
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 2. Ažuriraj URL u adresnoj trci sa hešom (ispravno)
+    window.history.pushState(null, '', `#${id}`);
+
     if (setActiveMobileSection) {
       setActiveMobileSection(id);
     }
