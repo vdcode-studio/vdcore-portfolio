@@ -10,10 +10,10 @@ export default function Contact({ darkMode }) {
   const [errorMessage, setErrorMessage] = useState("Oops! Something went wrong. Please try again later.");
   const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
-  // EMAILJS Service
-  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID; 
-  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+// EMAILJS Service
+  const EMAILJS_SERVICE_ID = "service_c2kig83"; 
+  const EMAILJS_TEMPLATE_ID = "portfolio_form";
+  const EMAILJS_PUBLIC_KEY = "czv52IPTXk6idb8KG";
 
   const actionButtonClass = `group w-14 h-14 rounded-2xl border transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 flex items-center justify-center cursor-pointer shrink-0 ${
     darkMode 
