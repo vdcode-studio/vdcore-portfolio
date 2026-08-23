@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <!-- RESPONSIVE & VIEWPORT STANDARD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- META TAGS -->
+    <title>VDCore - Java Backend & DevOps Engineer Portfolio</title>
+    <meta name="description" content="Professional portfolio of Vladimir, a Junior Software Developer specializing in Java Spring Boot backend architecture, microservices, and DevOps engineering." />
+    <meta name="keywords" content="Java, Spring Boot, DevOps, Backend Engineer, Docker, Portfolio, Linux, REST API" />
+    <meta name="author" content="Vladimir (VDCore)" />
+    
+    <!-- THEME & MOBILE BROWSERS -->
+    <meta id="theme-color-meta" name="theme-color" content="#070b14" />
+    <meta id="apple-status-style" name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- OPEN GRAPH / SOCIAL MEDIA (LinkedIn, Discord) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VDCore - Java Backend & DevOps Engineer" />
+    <meta property="og:description" content="Explore modern Java Spring Boot architecture, containerized microservices, and automated workflows." />
+    <meta property="og:url" content="https://vdcore.com" />
+    <meta property="og:image" content="https://vdcore.com/avatar.JPG" />
+
+    <!-- TWITTER CARDS -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VDCore - Java Backend & DevOps Engineer" />
+    <meta name="twitter:description" content="Explore modern Java Spring Boot architecture, containerized microservices, and automated workflows." />
+    <meta name="twitter:image" content="https://vdcore.com/avatar.JPG" />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- CROSS-BROWSER FONT STABILIZATION -->
+    <style>
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        -webkit-text-size-adjust: 100%;
+      }
+    </style>
+
+    <!-- SCRIPT FOR WHITE FLASH FIX -->
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('theme');
+          const isDark = savedTheme !== null ? savedTheme === 'dark' : true;
+          
+          const metaTheme = document.getElementById('theme-color-meta');
+          const metaApple = document.getElementById('apple-status-style');
+
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.backgroundColor = '#000000';
+            if (metaTheme) metaTheme.setAttribute('content', '#000000');
+            if (metaApple) metaApple.setAttribute('content', 'black-translucent');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.backgroundColor = '#f1f5f9';
+            if (metaTheme) metaTheme.setAttribute('content', '#f1f5f9');
+            if (metaApple) metaApple.setAttribute('content', 'default');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="m-0 p-0 antialiased selection:bg-indigo-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
