@@ -25,7 +25,7 @@ export default function Navbar({ activeMobileSection, setActiveMobileSection, da
       element.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 2. Ažuriraj URL u adresnoj trci sa hešom (ispravno)
+    // 2. Ažuriraj URL u adresnoj trci sa hešom
     window.history.pushState(null, '', `#${id}`);
 
     if (setActiveMobileSection) {
@@ -69,10 +69,11 @@ export default function Navbar({ activeMobileSection, setActiveMobileSection, da
               {navItems.map((item) => {
                 const isActive = activeMobileSection === item.id;
                 return (
-                  <button
+                  <a
                     key={item.name}
+                    href={`#${item.id}`}
                     onClick={(e) => handleNavClick(e, item.id)}
-                    className={`group px-4 py-2 rounded-2xl text-sm flex items-center gap-2 transition-all duration-150 cursor-pointer ${
+                    className={`group px-4 py-2 rounded-2xl text-sm flex items-center gap-2 transition-all duration-150 cursor-pointer no-underline ${
                       isActive 
                         ? (darkMode 
                           ? 'bg-[#181c27] text-indigo-300 border border-indigo-500/30 shadow-sm scale-[1.02]' 
@@ -84,7 +85,7 @@ export default function Navbar({ activeMobileSection, setActiveMobileSection, da
                   >
                     {item.svg}
                     <span>{item.name}</span>
-                  </button>
+                  </a>
                 );
               })}
             </div>
@@ -139,10 +140,11 @@ export default function Navbar({ activeMobileSection, setActiveMobileSection, da
           {navItems.map((item) => {
             const isMobileActive = activeMobileSection === item.id;
             return (
-              <button
+              <a
                 key={item.name}
+                href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className={`group flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transform transition-transform duration-150 ease-out cursor-pointer active:scale-95 ${
+                className={`group flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transform transition-transform duration-150 ease-out cursor-pointer active:scale-95 no-underline ${
                   isMobileActive 
                     ? 'text-indigo-400 font-bold scale-105 translate-y-[-2px]' 
                     : darkMode 
@@ -152,7 +154,7 @@ export default function Navbar({ activeMobileSection, setActiveMobileSection, da
               >
                 {item.svg}
                 <span className="text-[10px] sm:text-[11px] font-sans mt-0.5 tracking-tight">{item.name}</span>
-              </button>
+              </a>
             );
           })}
         </div>
