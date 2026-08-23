@@ -173,7 +173,7 @@ export default function Contact({ darkMode }) {
             </p>
           </div>
 
-  
+ 
           <div className="flex items-center justify-center gap-4 pt-2 pb-3 sm:pb-4 mt-6 sm:mt-7 mb-4 sm:mb-5">
             <button onClick={() => setIsOpen(true)} className={actionButtonClass} title="Get in touch">
               <MessageCircleMore className={contactIconClass} />
@@ -228,34 +228,31 @@ export default function Contact({ darkMode }) {
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-4 relative z-10">
                 <div style={{ display: 'none' }} aria-hidden="true">
-                  <input type="text" name="botcheck" value={formData.botcheck} onChange={(e) => setFormData({...formData, botcheck: e.target.value})} tabIndex="-1" autoComplete="off" />
+                  <input type="text" name="botcheck" id="botcheck" value={formData.botcheck} onChange={(e) => setFormData({...formData, botcheck: e.target.value})} tabIndex="-1" autoComplete="off" />
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-1.5 text-xs md:text-xs font-mono font-bold uppercase tracking-wider mb-1.5 text-indigo-400">
+                  <label htmlFor="name" className="flex items-center gap-1.5 text-xs md:text-xs font-mono font-bold uppercase tracking-wider mb-1.5 text-indigo-400 cursor-pointer">
                     <User className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                     <span>Name</span>
                   </label>
-                  {/* text-[16px] sprečava automatski zoom na mobilnom, a md:text-sm vraća na tvoj originalni izgled na PC-ju */}
-                  <input type="text" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className={`w-full px-4 md:px-4 py-3 md:py-3 rounded-xl border text-[16px] md:text-sm focus:outline-none transition-all duration-300 ${darkMode ? 'bg-[#08090e] border-indigo-500/35 text-[#f3f4f6] focus:border-indigo-400 focus:shadow-[0_0_15px_rgba(99,102,241,0.2)]' : 'bg-slate-50 border-indigo-200 text-slate-900 focus:border-indigo-500'}`} />
+                  <input type="text" id="name" name="name" autoComplete="name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className={`w-full px-4 md:px-4 py-3 md:py-3 rounded-xl border text-[16px] md:text-sm focus:outline-none transition-all duration-300 ${darkMode ? 'bg-[#08090e] border-indigo-500/35 text-[#f3f4f6] focus:border-indigo-400 focus:shadow-[0_0_15px_rgba(99,102,241,0.2)]' : 'bg-slate-50 border-indigo-200 text-slate-900 focus:border-indigo-500'}`} />
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-1.5 text-xs md:text-xs font-mono font-bold uppercase tracking-wider mb-1.5 text-indigo-400">
+                  <label htmlFor="email" className="flex items-center gap-1.5 text-xs md:text-xs font-mono font-bold uppercase tracking-wider mb-1.5 text-indigo-400 cursor-pointer">
                     <Mail className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                     <span>Email</span>
                   </label>
-                  {/* text-[16px] sprečava automatski zoom na mobilnom, a md:text-sm vraća na tvoj originalni izgled na PC-ju */}
-                  <input type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className={`w-full px-4 md:px-4 py-3 md:py-3 rounded-xl border text-[16px] md:text-sm focus:outline-none transition-all duration-300 ${darkMode ? 'bg-[#08090e] border-indigo-500/35 text-[#f3f4f6] placeholder:text-slate-600 focus:border-indigo-400 focus:shadow-[0_0_15px_rgba(99,102,241,0.2)]' : 'bg-slate-50 border-indigo-200 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500'}`} />
+                  <input type="email" id="email" name="email" autoComplete="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className={`w-full px-4 md:px-4 py-3 md:py-3 rounded-xl border text-[16px] md:text-sm focus:outline-none transition-all duration-300 ${darkMode ? 'bg-[#08090e] border-indigo-500/35 text-[#f3f4f6] placeholder:text-slate-600 focus:border-indigo-400 focus:shadow-[0_0_15px_rgba(99,102,241,0.2)]' : 'bg-slate-50 border-indigo-200 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500'}`} />
                 </div>
 
                 <div>
-                  <label className="flex items-center gap-1.5 text-xs md:text-xs font-mono font-bold uppercase tracking-wider mb-1.5 text-indigo-400">
+                  <label htmlFor="message" className="flex items-center gap-1.5 text-xs md:text-xs font-mono font-bold uppercase tracking-wider mb-1.5 text-indigo-400 cursor-pointer">
                     <MessageCircle className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                     <span>Message</span>
                   </label>
-                  {/* text-[16px] sprečava automatski zoom na mobilnom, a md:text-sm vraća na tvoj originalni izgled na PC-ju */}
-                  <textarea rows="4" required minLength="32" value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} placeholder="Min 32 characters..." className={`w-full px-4 md:px-4 py-3 md:py-3 rounded-xl border text-[16px] md:text-sm resize-none focus:outline-none transition-all duration-300 ${darkMode ? 'bg-[#08090e] border-indigo-500/35 text-[#f3f4f6] placeholder:text-slate-600 focus:border-indigo-400 focus:shadow-[0_0_15px_rgba(99,102,241,0.2)]' : 'bg-slate-50 border-indigo-200 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500'}`}></textarea>
+                  <textarea id="message" name="message" autoComplete="off" rows="4" required minLength="32" value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} placeholder="Min 32 characters..." className={`w-full px-4 md:px-4 py-3 md:py-3 rounded-xl border text-[16px] md:text-sm resize-none focus:outline-none transition-all duration-300 ${darkMode ? 'bg-[#08090e] border-indigo-500/35 text-[#f3f4f6] placeholder:text-slate-600 focus:border-indigo-400 focus:shadow-[0_0_15px_rgba(99,102,241,0.2)]' : 'bg-slate-50 border-indigo-200 text-slate-900 placeholder:text-slate-400 focus:border-indigo-500'}`}></textarea>
                 </div>
 
                 {status.error && <p className="text-xs md:text-xs text-red-400 text-center font-medium">{errorMessage}</p>}
