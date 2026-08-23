@@ -20,13 +20,11 @@ function App() {
     return true; 
   });
 
-  // Stanje koje tera React da se ponovo iscrta pri resize-u prozora
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   const isManualScrolling = useRef(false);
   const scrollTimeoutRef = useRef(null);
 
-  // DYNAMIC RESIZE LISTENER: Rešava problem sa skupljanjem/širenjem browsera u hodu
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -96,6 +94,8 @@ function App() {
               if (scrollPosition >= top) {
                 setActiveMobileSection(sections[i]);
                 localStorage.setItem('activeSection', sections[i]);
+                // Ažurira URL automatski pri skrolu mišem
+                window.history.replaceState(null, '', `#${sections[i]}`);
                 break;
               }
             }
@@ -115,6 +115,8 @@ function App() {
   const handleMobileSectionChange = (sectionId) => {
     setActiveMobileSection(sectionId);
     localStorage.setItem('activeSection', sectionId);
+    // Ažurira URL pri kliku na navbar ili strelicu
+    window.history.replaceState(null, '', `#${sectionId}`);
     
     if (window.innerWidth >= 768) {
       isManualScrolling.current = true;
@@ -153,7 +155,6 @@ function App() {
     handleMobileSectionChange(id);
   };
 
-  // Dinamička provera za prikaz sekcija u zavisnosti od širine prozora
   const isMobile = windowWidth < 768;
 
   return (
@@ -168,28 +169,24 @@ function App() {
 
       <main className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 w-full pt-24 md:pt-24 pb-2 sm:pb-4 flex flex-col gap-8 md:gap-16">
          
-         {/* HERO */}
          <div id="about-wrapper" className={`${isMobile && activeMobileSection !== 'about' ? 'hidden' : 'block'} w-full md:block`}>
             <div id="about" className="scroll-mt-24 md:flex md:flex-col md:justify-start md:pt-2">
               <Hero setActiveMobileSection={handleMobileSectionChange} darkMode={darkMode} />
             </div>
          </div>
 
-         {/* SKILLS */}
          <div id="skills-wrapper" className={`${isMobile && activeMobileSection !== 'skills' ? 'hidden' : 'block'} w-full md:block`}>
             <div id="skills" className="md:w-full md:max-w-6xl md:mx-auto">
               <Skills darkMode={darkMode} />
             </div>
          </div>
 
-         {/* PROJECTS */}
          <div id="projects-wrapper" className={`${isMobile && activeMobileSection !== 'projects' ? 'hidden' : 'block'} w-full md:block`}>
             <div id="projects" className="md:w-full md:max-w-6xl md:mx-auto">
               <Projects darkMode={darkMode} />
             </div>
          </div>
 
-         {/* CONTACT */}
          <div id="contact-wrapper" className={`${isMobile && activeMobileSection !== 'contact' ? 'hidden' : 'block'} w-full md:block`}>
             <div id="contact" className="md:w-full md:max-w-6xl md:mx-auto">
               <Contact darkMode={darkMode} scrollToSection={scrollToSection} />
@@ -198,7 +195,6 @@ function App() {
 
       </main>
 
-      {/* FOOTER */}
       <Footer darkMode={darkMode} scrollToSection={scrollToSection} />
 
     </div>
