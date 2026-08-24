@@ -1,14 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- Pozadina sa zaobljenim ivicama -->
-  <rect width="512" height="512" rx="110" fill="#090d16" />
-  <rect width="512" height="512" rx="110" fill="none" stroke="#312e81" stroke-width="16" opacity="0.6" />
-
-  <!-- Terminalski znak (>_) - veći i jasniji -->
-  <text x="65" y="165" font-family="monospace" font-weight="900" font-size="110" fill="#94a3b8">&gt;_</text>
-
-  <!-- Glavni inicijali VD - krupni i dominantni -->
-  <text x="55" y="380" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="240" fill="#6366f1" letter-spacing="-8">VD</text>
-
-  <!-- Kontrastna tačka u Amber/Zlatnoj boji -->
-  <circle cx="435" cy="335" r="28" fill="#fbbf24" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><g clip-path="url(#SvgjsClipPath1420)"><rect width="1000" height="1000" fill="#000000"></rect><g transform="matrix(1.7578125,0,0,1.7578125,50,50)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512"><defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@700&amp;family=JetBrains+Mono:wght@800&amp;display=swap');
+      
+      .terminal {
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 800;
+        fill: #94a3b8;
+      }
+      .vd-text {
+        font-family: 'Fredoka', sans-serif;
+        font-weight: 700;
+        fill: #6366f1;
+        letter-spacing: -6px;
+      }
+      .dot {
+        fill: #fbbf24;
+      }
+    </style>
+  <clipPath id="SvgjsClipPath1420"><rect width="1000" height="1000" x="0" y="0" rx="350" ry="350"></rect></clipPath></defs><rect width="512" height="512" rx="110" fill="#000000"></rect><text x="65" y="165" font-size="115" class="terminal">&gt;_</text><text x="40" y="415" font-size="300" class="vd-text">VD</text><circle cx="455" cy="385" r="30" class="dot"></circle></svg></g></g></svg>
