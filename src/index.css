@@ -114,5 +114,11 @@
       transform: translate3d(0, 0, 0) !important;
       will-change: transform;
     }
+
+    /* 4. Daje kraćim sekcijama (About i Contact) istu minimalnu radnu visinu 
+       kako bi se dock spustio i savršeno poravnao sa Skills i Projects */
+    section#about, section#contact {
+      min-height: calc(100vh - 130px) !important;
+    }
   }
 }
