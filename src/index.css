@@ -91,18 +91,18 @@
   animation: professionalFade 1.20s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* --- PWA STANDALONE GORNJI RAZMAK ZA SAT I SADRŽAJ (NE DIRA WEB VERZIJU) --- */
+/* --- PWA STANDALONE GORNJI RAZMAK ZA SAT (NE DIRA WEB VERZIJU) --- */
 @media all and (display-mode: standalone), all and (display-mode: fullscreen) {
   @media (max-width: 767px) {
-    /* 1. Spušta fiksni nav ispod sata/status bara */
+    /* 1. Prilagođava visinu i gornji razmak fiksnog navbara za sat i status bar */
     nav.fixed.top-0 {
       padding-top: max(env(safe-area-inset-top), 22px) !important;
       height: auto !important;
     }
     
-    /* 2. Gura glavni sadržaj (prvu sekciju) nadole da ne podleti pod navbar */
+    /* 2. Čuva izvorni razmak sadržaja i sekcija da sve ostane u savršenoj ravnoteži */
     #root > *:first-child, section:first-of-type, main {
-      padding-top: 75px !important;
+      padding-top: 0px !important;
     }
   }
 }
