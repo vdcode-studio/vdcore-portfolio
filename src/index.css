@@ -101,18 +101,23 @@
       z-index: 50 !important;
     }
     
-    /* 2. Sadržaj odvojen tačno na 55px ispod headera da ne udara u njega */
+    /* 2. Vraćamo telo u normalu (nema više silovanja sa visinama koje prave skrol) */
     body {
-      padding-top: 77px !important; /* 22px gornji prostor + ~55px razmak za sadržaj */
-      padding-bottom: calc(85px + env(safe-area-inset-bottom)) !important;
+      padding-top: 55px !important; /* Tačan razmak za sadržaj ispod headera */
+      padding-bottom: calc(80px + env(safe-area-inset-bottom)) !important;
+      overflow-y: auto !important;
       overflow-x: hidden !important;
+      scroll-padding-top: 75px !important; /* Sprečava da bilo koja sekcija ode pod header pri skrolu */
     }
 
-    /* 3. Stabilne sekcije u istoj ravni */
+    /* 3. SEKCIJE KAO NA WEB-U: Nema nasilnog razvlačenja, About/Contact nemaju skrol, 
+       a Skills i Projects počinju prirodno ispod headera po defaultu */
     section {
-      scroll-margin-top: 85px !important;
-      min-height: calc(100vh - 160px) !important;
-      padding-top: 15px !important;
+      min-height: auto !important;
+      height: auto !important;
+      overflow: visible !important;
+      scroll-margin-top: 75px !important;
+      padding-top: 10px !important;
       box-sizing: border-box !important;
     }
 
@@ -123,10 +128,10 @@
       transform: translate3d(0, 0, 0);
     }
 
-    /* 5. DOCK: Fiksiran na istoj ravni za sve sekcije + automatski zaštićen od sistemske navigacije telefona */
+    /* 5. DOCK: Fiksiran u istoj ravni na dnu, iznad sistemske trake */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
-      bottom: max(env(safe-area-inset-bottom), 12px) !important; /* Automatski se diže iznad sistemske trake/crte gestova */
+      bottom: max(env(safe-area-inset-bottom), 0px) !important;
       top: auto !important;
       left: 0 !important;
       right: 0 !important;
