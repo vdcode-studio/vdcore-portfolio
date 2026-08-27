@@ -91,7 +91,7 @@
   animation: professionalFade 1.20s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* --- PWA STANDALONE GORNJI RAZMAK ZA SAT (NE DIRA WEB VERZIJU) --- */
+/* --- PWA STANDALONE GORNJI RAZMAK ZA SAT I FIKSIRAN DOCK (NE DIRA WEB VERZIJU) --- */
 @media all and (display-mode: standalone), all and (display-mode: fullscreen) {
   @media (max-width: 767px) {
     /* 1. Prilagođava visinu i gornji razmak fiksnog navbara za sat i status bar */
@@ -103,6 +103,16 @@
     /* 2. Čuva izvorni razmak sadržaja i sekcija da sve ostane u savršenoj ravnoteži */
     #root > *:first-child, section:first-of-type, main {
       padding-top: 55px !important;
+    }
+
+    /* 3. Fiksira donji dock u apsolutno istoj ravni na svim sekcijama 
+       + štiti od preklapanja sa sistemskom trakom/gestovima na dnu ekrana */
+    .md\:hidden.fixed.bottom-0 {
+      position: fixed !important;
+      bottom: max(env(safe-area-inset-bottom), 12px) !important;
+      top: auto !important;
+      transform: translate3d(0, 0, 0) !important;
+      will-change: transform;
     }
   }
 }
