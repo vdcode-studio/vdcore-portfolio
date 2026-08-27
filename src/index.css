@@ -105,20 +105,25 @@
       padding-top: 55px !important;
     }
 
-    /* 3. Fiksira donji dock u apsolutno istoj ravni na svim sekcijama 
-       + štiti od preklapanja sa sistemskom trakom/gestovima na dnu ekrana */
+    /* 3. Zabetoniran dock na jedinstvenoj visini bez trzanja */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
-      bottom: max(env(safe-area-inset-bottom), 12px) !important;
+      bottom: 16px !important; /* Fiksna stabilna mera koja sprečava milimetarsko pomeranje */
       top: auto !important;
       transform: translate3d(0, 0, 0) !important;
       will-change: transform;
     }
 
-    /* 4. Daje kraćim sekcijama (About i Contact) istu minimalnu radnu visinu 
-       kako bi se dock spustio i savršeno poravnao sa Skills i Projects */
-    section#about, section#contact {
-      min-height: calc(100vh - 130px) !important;
+    /* 4. Vraćamo sadržaj u About sekciji nagore (brišemo silovanu visinu i vraćamo prirodan položaj) */
+    section#about {
+      min-height: auto !important;
+      padding-top: 0px !important;
+      margin-top: -10px !important; /* Povlači sadržaj About sekcije malo nagore da se poravna */
+    }
+
+    /* 5. Contact sekcija ostaje stabilna bez unutrašnjeg pomeranja */
+    section#contact {
+      min-height: auto !important;
     }
   }
 }
