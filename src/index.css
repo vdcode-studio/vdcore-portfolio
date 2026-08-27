@@ -103,20 +103,20 @@
     /* 2. Čuva razmak prve sekcije da ne podleti pod header */
     #root > *:first-child, section:first-of-type, main {
       padding-top: 60px !important;
+      /* Industrijski standard: dodaje prostor na dnu da sadržaj ne udara u dock */
+      padding-bottom: calc(80px + env(safe-area-inset-bottom)) !important;
     }
 
-    /* 3. Fiksira minimalnu visinu sekcija da kraće stranice ne "pomeraju" dock nagore */
+    /* 3. Vraćamo sekcije u prirodan položaj */
     section {
-      min-height: calc(100vh - 130px) !important;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      min-height: auto !important;
+      display: block !important;
     }
 
-    /* 4. Apsolutno zakucavanje donjeg dock-a da se ne pomera ni na jednoj sekciji */
+    /* 4. Zabetoniran dock koji poštuje donju sistemsku navigaciju telefona */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
-      bottom: 0 !important;
+      bottom: max(env(safe-area-inset-bottom), 0px) !important;
       top: auto !important;
       left: 0 !important;
       right: 0 !important;
