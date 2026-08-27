@@ -105,11 +105,15 @@
       padding-top: 60px !important;
     }
 
-    /* 3. Zakucava donji dock meni da se ne pomera pri skrolovanju dugih sekcija (Skills/Projects) */
+    /* 3. Apsolutno zakucavanje donjeg dock-a da se ne pomera pri skrolovanju dugih sekcija (Skills/Projects) */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
       bottom: 0 !important;
-      transform: translateZ(0);
+      top: auto !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: translate3d(0, 0, 0) !important;
+      will-change: transform;
     }
   }
 }
