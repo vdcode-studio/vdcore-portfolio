@@ -94,46 +94,48 @@
 /* --- PWA STANDALONE OPTIMIZACIJE (NE DIRA WEB VERZIJU) --- */
 @media all and (display-mode: standalone), all and (display-mode: fullscreen) {
   @media (max-width: 767px) {
-    /* 1. Gornji razmak za sat i status bar */
+    /* 1. Fiksirani gornji navbar za sat i status bar */
     nav.fixed.top-0 {
-      padding-top: max(env(safe-area-inset-top), 22px) !important;
-      height: auto !important;
+      padding-top: max(env(safe-area-inset-top), 20px) !important;
+      height: 60px !important;
       z-index: 50 !important;
     }
     
-    /* 2. Povećan gornji padding da badževi na Skills/Projects nikada ne udaraju pod header */
+    /* 2. Zakucavamo body da ne šeta visina u zavisnosti od skrola */
     body {
-      padding-top: 85px !important;
-      padding-bottom: 100px !important;
-      overflow-y: auto !important;
+      padding-top: 60px !important;
+      padding-bottom: 80px !important;
       overflow-x: hidden !important;
-      scroll-padding-top: 95px !important;
     }
 
-    /* 3. Precizna margina za svaku sekciju pri skrolu */
+    /* 3. KLJUČNO: Sve sekcije na mobilnom dobijaju tačno definisanu radnu visinu 
+       između headera i dock-a. Nema više sabijanja i šetanja sadržaja! */
     section {
-      scroll-margin-top: 95px !important;
-      overflow: visible !important;
-      max-height: none !important;
+      scroll-margin-top: 75px !important;
+      min-height: calc(100vh - 140px) !important;
+      padding-top: 20px !important;
+      box-sizing: border-box !important;
     }
 
-    /* 4. ISPRAVKA ZA AVATAR: Čisti render senki */
+    /* 4. GPU ubrzanje za avatar da se ne "lepi" senka */
     img[alt*="avatar" i], .rounded-full, .shadow-indigo-500, [class*="shadow"] {
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       transform: translateZ(0);
     }
 
-    /* 5. UNIFORMORAN DOCK NA SVIM SEKCIJAMA (Zabetoniran na dnu iznad sistemske trake) */
+    /* 5. APSOLUTNO ZAKUCAN DOCK NA ISTOJ VISINI ZA SVE SEKCIJE */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
-      bottom: max(env(safe-area-inset-bottom), 0px) !important;
+      bottom: 0 !important;
       top: auto !important;
       left: 0 !important;
       right: 0 !important;
+      height: 70px !important;
       z-index: 99999 !important;
       transform: translate3d(0, 0, 0) !important;
       will-change: transform;
+      background-color: inherit !important;
     }
   }
 }
