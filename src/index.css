@@ -91,12 +91,14 @@
   animation: professionalFade 1.20s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* --- MOBILE PWA SAFE AREA (Aktivira se samo na telefonima u PWA/standalone modu) --- */
+/* --- MOBILE PWA SAFE AREA & LAYOUT FIX --- */
 @media (max-width: 767px) {
-  /* Štiti gornji deo od sata i status bara, a dole ostavlja prostor za tvoj dock meni */
   #root {
-    padding-top: env(safe-area-inset-top, 0px);
+    /* Obezbeđuje da koren aplikacije pokrije ceo ekran i spusti sadržaj ispod sata/kamere */
+    min-height: 100vh;
+    padding-top: max(env(safe-area-inset-top), 28px);
     padding-bottom: 90px; 
+    box-sizing: border-box;
   }
   
   html {
