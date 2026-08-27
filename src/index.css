@@ -94,25 +94,25 @@
 /* --- PWA STANDALONE OPTIMIZACIJE (NE DIRA WEB VERZIJU) --- */
 @media all and (display-mode: standalone), all and (display-mode: fullscreen) {
   @media (max-width: 767px) {
-    /* 1. Prilagođava gornji razmak za sat i status bar */
+    /* 1. Gornji razmak za sat i status bar */
     nav.fixed.top-0 {
       padding-top: max(env(safe-area-inset-top), 22px) !important;
       height: auto !important;
       z-index: 50 !important;
     }
     
-    /* 2. Precizan razmak za body i osiguranje da se skrol uvek lepo poravnava */
+    /* 2. Povećan gornji padding da badževi na Skills/Projects nikada ne udaraju pod header */
     body {
-      padding-top: 75px !important;
-      padding-bottom: calc(95px + env(safe-area-inset-bottom)) !important;
+      padding-top: 85px !important;
+      padding-bottom: 100px !important;
       overflow-y: auto !important;
       overflow-x: hidden !important;
-      scroll-padding-top: 80px !important;
+      scroll-padding-top: 95px !important;
     }
 
-    /* 3. Svaka sekcija dobija stabilan razmak da ne podleće pod header pri prelazu */
+    /* 3. Precizna margina za svaku sekciju pri skrolu */
     section {
-      scroll-margin-top: 80px !important;
+      scroll-margin-top: 95px !important;
       overflow: visible !important;
       max-height: none !important;
     }
@@ -124,7 +124,7 @@
       transform: translateZ(0);
     }
 
-    /* 5. DOCK SPUSHTEN DOLE ZA SVE SEKCIJE (Usklađeno sa Skills/Projects) */
+    /* 5. UNIFORMORAN DOCK NA SVIM SEKCIJAMA (Zabetoniran na dnu iznad sistemske trake) */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
       bottom: max(env(safe-area-inset-bottom), 0px) !important;
