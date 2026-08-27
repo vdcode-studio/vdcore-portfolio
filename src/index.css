@@ -101,10 +101,10 @@
       z-index: 50 !important;
     }
     
-    /* 2. Čist razmak od vrha i dna za PWA kontejner */
+    /* 2. Čist razmak od vrha i dna za PWA kontejner da dugge sekcije mogu lepo da se skroluju */
     body {
       padding-top: 70px !important;
-      padding-bottom: calc(90px + env(safe-area-inset-bottom)) !important;
+      padding-bottom: 110px !important;
       overflow-y: auto !important;
       overflow-x: hidden !important;
     }
@@ -122,16 +122,17 @@
       transform: translateZ(0);
     }
 
-    /* 5. Zabetoniran dock na dnu */
+    /* 5. ZABETONIRAN DOCK NA IDEALNOJ VISINI IZNAD SISTEMSKE TRAKE / CRTE */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
-      bottom: max(env(safe-area-inset-bottom), 0px) !important;
+      bottom: calc(14px + env(safe-area-inset-bottom)) !important;
       top: auto !important;
-      left: 0 !important;
-      right: 0 !important;
+      left: 12px !important;
+      right: 12px !important;
       z-index: 99999 !important;
       transform: translate3d(0, 0, 0) !important;
       will-change: transform;
+      border-radius: 1.25rem !important;
     }
   }
 }
