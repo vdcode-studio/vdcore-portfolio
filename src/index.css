@@ -105,7 +105,15 @@
       padding-top: 60px !important;
     }
 
-    /* 3. Apsolutno zakucavanje donjeg dock-a da se ne pomera pri skrolovanju dugih sekcija (Skills/Projects) */
+    /* 3. Fiksira minimalnu visinu sekcija da kraće stranice ne "pomeraju" dock nagore */
+    section {
+      min-height: calc(100vh - 130px) !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* 4. Apsolutno zakucavanje donjeg dock-a da se ne pomera ni na jednoj sekciji */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
       bottom: 0 !important;
