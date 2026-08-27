@@ -102,7 +102,7 @@
     
     /* 2. Čuva izvorni razmak sadržaja i sekcija da sve ostane u savršenoj ravnoteži */
     #root > *:first-child, section:first-of-type, main {
-      padding-top: 35px !important;
+      padding-top: 50px !important;
     }
   }
 }
