@@ -94,31 +94,32 @@
 /* --- PWA STANDALONE OPTIMIZACIJE (NE DIRA WEB VERZIJU) --- */
 @media all and (display-mode: standalone), all and (display-mode: fullscreen) {
   @media (max-width: 767px) {
-    /* 1. Prilagođava visinu i gornji razmak fiksnog navbara za sat i status bar */
+    /* 1. Prilagođava gornji razmak za sat i status bar */
     nav.fixed.top-0 {
       padding-top: max(env(safe-area-inset-top), 22px) !important;
       height: auto !important;
       z-index: 50 !important;
     }
     
-    /* 2. Sprečava da ceo dokument beži pod header, već počinje tačno ispod njega */
-    body, main {
-      padding-top: 75px !important;
-      padding-bottom: calc(80px + env(safe-area-inset-bottom)) !important;
-      overflow-x: hidden;
-    }
-
-    /* 3. About i Contact - čvrsto fiksirani bez skrola, tačno u svom prostoru */
-    section#about, section#contact, 
-    section:not(#skills):not(#projects) {
-      overflow: hidden !important;
-      height: auto !important;
-    }
-
-    /* 4. Skills i Projects - imaju unutrašnji skrol jer im treba */
-    section#skills, section#projects {
+    /* 2. Čist razmak od vrha i dna za PWA kontejner */
+    body {
+      padding-top: 70px !important;
+      padding-bottom: calc(90px + env(safe-area-inset-bottom)) !important;
       overflow-y: auto !important;
-      max-height: calc(100vh - 160px);
+      overflow-x: hidden !important;
+    }
+
+    /* 3. Uklanjamo restrikcije sekcija da nema dvostrukog skrola */
+    section {
+      overflow: visible !important;
+      max-height: none !important;
+    }
+
+    /* 4. ISPRAVKA ZA AVATAR: Čisti render senki i uklanja artefakte u PWA modu */
+    img[alt*="avatar" i], .rounded-full, .shadow-indigo-500, [class*="shadow"] {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      transform: translateZ(0);
     }
 
     /* 5. Zabetoniran dock na dnu */
