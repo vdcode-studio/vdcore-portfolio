@@ -105,25 +105,19 @@
       padding-top: 55px !important;
     }
 
-    /* 3. Zabetoniran dock na jedinstvenoj visini bez trzanja */
+    /* 3. DOCK: Stabilno zakucan u istoj ravni na svim sekcijama sa bezbednom distancom od dna */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
-      bottom: 16px !important; /* Fiksna stabilna mera koja sprečava milimetarsko pomeranje */
+      bottom: calc(14px + env(safe-area-inset-bottom)) !important;
       top: auto !important;
       transform: translate3d(0, 0, 0) !important;
       will-change: transform;
     }
 
-    /* 4. Vraćamo sadržaj u About sekciji nagore (brišemo silovanu visinu i vraćamo prirodan položaj) */
-    section#about {
+    /* 4. ABOUT I CONTACT: Vraćeni na prirodnu visinu da sadržaj ne beži pod header */
+    section#about, section#contact {
       min-height: auto !important;
-      padding-top: 0px !important;
-      margin-top: -10px !important; /* Povlači sadržaj About sekcije malo nagore da se poravna */
-    }
-
-    /* 5. Contact sekcija ostaje stabilna bez unutrašnjeg pomeranja */
-    section#contact {
-      min-height: auto !important;
+      margin-top: 0 !important;
     }
   }
 }
