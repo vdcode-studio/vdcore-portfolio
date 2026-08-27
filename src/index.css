@@ -98,28 +98,30 @@
     nav.fixed.top-0 {
       padding-top: max(env(safe-area-inset-top), 22px) !important;
       height: auto !important;
+      z-index: 50 !important;
     }
     
-    /* 2. Prva sekcija razmak gore */
-    #root > *:first-child, section:first-of-type, main {
-      padding-top: 60px !important;
-      padding-bottom: calc(75px + env(safe-area-inset-bottom)) !important;
+    /* 2. Sprečava da ceo dokument beži pod header, već počinje tačno ispod njega */
+    body, main {
+      padding-top: 75px !important;
+      padding-bottom: calc(80px + env(safe-area-inset-bottom)) !important;
+      overflow-x: hidden;
     }
 
-    /* 3. Onemogućava skrol i prelivanje na kraćim sekcijama (poput About i Contact) */
+    /* 3. About i Contact - čvrsto fiksirani bez skrola, tačno u svom prostoru */
     section#about, section#contact, 
     section:not(#skills):not(#projects) {
       overflow: hidden !important;
-      max-height: calc(100vh - 140px);
+      height: auto !important;
     }
 
-    /* 4. Sekcije sa puno sadržaja (Skills i Projects) zadržavaju svoj skrol */
+    /* 4. Skills i Projects - imaju unutrašnji skrol jer im treba */
     section#skills, section#projects {
       overflow-y: auto !important;
-      max-height: calc(100vh - 140px);
+      max-height: calc(100vh - 160px);
     }
 
-    /* 5. Zabetoniran dock na dnu iznad sistemske safe-area trake */
+    /* 5. Zabetoniran dock na dnu */
     .md\:hidden.fixed.bottom-0 {
       position: fixed !important;
       bottom: max(env(safe-area-inset-bottom), 0px) !important;
