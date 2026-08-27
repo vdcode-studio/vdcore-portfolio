@@ -91,40 +91,18 @@
   animation: professionalFade 1.20s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* --- PWA STANDALONE: SAVRŠENO USKLAĐEN DOCK I SEKCIJE --- */
+/* --- PWA STANDALONE GORNJI RAZMAK ZA SAT (NE DIRA WEB VERZIJU) --- */
 @media all and (display-mode: standalone), all and (display-mode: fullscreen) {
   @media (max-width: 767px) {
-    /* 1. Gornji razmak za sat (ostaje tvoje) */
+    /* 1. Prilagođava visinu i gornji razmak fiksnog navbara za sat i status bar */
     nav.fixed.top-0 {
       padding-top: max(env(safe-area-inset-top), 22px) !important;
       height: auto !important;
     }
     
-    /* 2. Osnovni razmak za sadržaj ispod headera */
+    /* 2. Čuva izvorni razmak sadržaja i sekcija da sve ostane u savršenoj ravnoteži */
     #root > *:first-child, section:first-of-type, main {
       padding-top: 55px !important;
-    }
-
-    /* 3. DOCK PO STANDARDU: Skroz dole, sa malo prostora, podignut iznad sistemske trake telefona */
-    .md\:hidden.fixed.bottom-0 {
-      position: fixed !important;
-      bottom: calc(10px + env(safe-area-inset-bottom)) !important; /* Daje tačno malo prostora i štiti od sistemske navigacije */
-      top: auto !important;
-      left: 12px !important;  /* Blago odvojeno od ivica da izgleda kao lep plivajući dock, ili stavi 0 ako želiš od ivice do ivice */
-      right: 12px !important;
-      transform: translate3d(0, 0, 0) !important;
-      will-change: transform;
-      z-index: 99999 !important;
-    }
-
-    /* 4. REŠENJE ZA STRANICE BEZ SKROLA (About i Contact): 
-       Dajemo im minimalnu visinu visine ekrana minus gornji i donji prostor, 
-       čime sprečavamo da dock "beži" nagore kada nema dovoljno sadržaja. */
-    section#about, section#contact {
-      min-height: calc(100vh - 140px) !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: flex-start !important;
     }
   }
 }
