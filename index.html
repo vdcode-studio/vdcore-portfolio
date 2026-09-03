@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     
     <!-- RESPONSIVE & VIEWPORT STANDARD -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- META TAGS -->
     <title>VDCore. | Portfolio</title>
@@ -12,10 +12,8 @@
     <meta name="keywords" content="Java, Spring Boot, DevOps, Backend Engineer, Docker, Portfolio, Linux, REST API" />
     <meta name="author" content="Vladimir (VDCore)" />
     
-    <!-- THEME & MOBILE BROWSERS -->
-    <meta id="theme-color-meta" name="theme-color" content="#070b14" />
-    <meta id="apple-status-style" name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- THEME COLOR FOR BROWSERS -->
+    <meta id="theme-color-meta" name="theme-color" content="#000000" />
     <meta name="format-detection" content="telephone=no" />
 
     <!-- OPEN GRAPH / SOCIAL MEDIA (LinkedIn, Discord) -->
@@ -31,12 +29,11 @@
     <meta name="twitter:description" content="Explore modern Java Spring Boot architecture, containerized microservices, and automated workflows." />
     <meta name="twitter:image" content="https://vdcore.com/avatar.JPG" />
 
-<!-- FAVICON & PWA ASSETS -->
+    <!-- FAVICONS -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- CROSS-BROWSER FONT STABILIZATION -->
     <style>
@@ -60,18 +57,15 @@
           const isDark = savedTheme !== null ? savedTheme === 'dark' : true;
           
           const metaTheme = document.getElementById('theme-color-meta');
-          const metaApple = document.getElementById('apple-status-style');
 
           if (isDark) {
             document.documentElement.classList.add('dark');
             document.documentElement.style.backgroundColor = '#000000';
             if (metaTheme) metaTheme.setAttribute('content', '#000000');
-            if (metaApple) metaApple.setAttribute('content', 'black-translucent');
           } else {
             document.documentElement.classList.remove('dark');
             document.documentElement.style.backgroundColor = '#f1f5f9';
             if (metaTheme) metaTheme.setAttribute('content', '#f1f5f9');
-            if (metaApple) metaApple.setAttribute('content', 'default');
           }
         } catch (e) {}
       })();
