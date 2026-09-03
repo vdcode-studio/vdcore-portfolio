@@ -8,7 +8,6 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
   const [terminalState, setTerminalState] = useState('active'); // 'active' or 'closed'
   const [isGlitching, setIsGlitching] = useState(false);
 
-
   const actionButtonClass = `group w-14 h-14 rounded-2xl border transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 flex items-center justify-center cursor-pointer shrink-0 ${
     darkMode 
       ? 'border-indigo-500/30 bg-[#12131c] text-[#f3f4f6] hover:border-indigo-400 shadow-[0_12px_40px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.08)]' 
@@ -21,17 +20,15 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
       : 'text-slate-900 group-hover:text-indigo-600'
   }`;
 
-  // Animation X button
   const handleTerminalClose = () => {
     setTerminalState('closed');
     setTimeout(() => {
       setTerminalState('active');
-    }, 3000); // auto reboot after 3 sec
+    }, 3000); 
   };
 
-  // Maximize / Restore + Glitch animation (Square button)
   const handleMaximize = () => {
-    setIsMinimized(false); // Maximize terminal if it was minimized
+    setIsMinimized(false); 
     setIsGlitching(true);
     setTimeout(() => setIsGlitching(false), 450);
   };
@@ -61,7 +58,7 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                   ? 'shadow-[0_8px_25px_rgba(0,0,0,0.8),0_0_15px_rgba(99,102,241,0.3)]' 
                   : 'shadow-[0_10px_25px_rgba(0,0,0,0.2)]'
               }`} style={{ width: '6.5rem', height: '6.5rem' }}>
-                <img src="/avatar.JPG" alt="Avatar" className="w-full h-full object-cover" />
+                <img src="/avatar.JPG" alt="Vladimir Dejanovic" className="w-full h-full object-cover" />
               </div>
             </div>
 
@@ -82,7 +79,7 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
             </div>
           </div>
 
-          {/* PC Picture */}
+          {/* PC PICTURE & BADGE */}
           <div className="hidden md:flex w-full md:col-span-5 md:pl-16 flex-col items-center md:items-center order-first md:order-last group">
             <div className="relative w-full flex justify-center items-center">
               <div className={`absolute w-32 h-32 sm:w-52 sm:h-52 md:w-auto md:h-auto md:inset-[-14px] rounded-[2.5rem] pointer-events-none transition duration-1000 ${
@@ -96,7 +93,7 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                   ? 'shadow-[0_12px_45px_-10px_rgba(0,0,0,0.85),0_0_25px_rgba(139,92,241,0.25)] border border-indigo-500/30' 
                   : 'shadow-[0_15px_35px_rgba(99,102,241,0.2)] border border-indigo-300/80 bg-white'
               }`}>
-                <img src="/avatar.JPG" alt="Avatar" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src="/avatar.JPG" alt="Vladimir Dejanovic" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
             </div>
 
@@ -130,11 +127,11 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
            <h1 className={`text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight w-full max-w-xl text-center md:text-center mx-auto ${
                 darkMode ? 'text-[#f3f4f6]' : 'text-slate-900'
               }`}>
-               Java Backend & <br/>
+                Java Backend & <br/>
             <span className={`text-transparent bg-clip-text bg-gradient-to-r ${
                darkMode 
-                 ? 'from-indigo-400 via-purple-400 to-pink-400 drop-shadow-[0_0_30px_rgba(99,102,241,0.4)]' 
-                 : 'from-indigo-500 via-purple-500 to-pink-500 drop-shadow-[0_2px_8px_rgba(99,102,241,0.2)]' // Svetlije boje + vrlo blaga senka
+                  ? 'from-indigo-400 via-purple-400 to-pink-400 drop-shadow-[0_0_30px_rgba(99,102,241,0.4)]' 
+                  : 'from-indigo-500 via-purple-500 to-pink-500 drop-shadow-[0_2px_8px_rgba(99,102,241,0.2)]'
               }`}>
                   DevOps Engineer.
              </span>
@@ -199,12 +196,12 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                 </div>
               </div>
 
-              {/* TERMINAL */}
+              {/* TERMINAL CONTENT */}
               <div className={`p-3.5 sm:p-4 text-xs sm:text-xs md:text-sm font-mono leading-relaxed transition-all duration-300 overflow-hidden flex flex-col justify-center ${
                 isMinimized ? 'max-h-0 py-0 opacity-0' : 'h-[115px] sm:h-[125px] opacity-100'
               }`}>
                 {terminalState === 'closed' ? (
-                  <div className="text-red-500 dark:text-red-400 font-mono text-center animate-pulse tracking-wide font-bold py-2">
+                  <div className="text-red-500 font-mono text-center animate-pulse tracking-wide font-bold py-2">
                     [ Process terminated. Rebooting kernel... ]
                   </div>
                 ) : (
@@ -231,24 +228,24 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                       </div>
                     )}
 
-                  {activeTab === 'stack' && (
+                    {activeTab === 'stack' && (
                       <div className="space-y-1.5">
                         <div className="flex items-center gap-2 font-bold">
                           <span className={darkMode ? 'text-indigo-400' : 'text-indigo-600'}>$</span>
                           <span className={darkMode ? 'text-slate-200' : 'text-slate-900'}>docker-compose up -d</span>
                         </div>
                         <div className={`font-mono text-[11px] sm:text-xs space-y-0.5 ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                          <div className="text-emerald-700 dark:text-emerald-400 font-bold">[+] Running 3/3</div>
-                          <div className="grid grid-cols-[auto_1fr] gap-x-3 text-emerald-700 dark:text-emerald-400 font-medium">
+                          <div className={darkMode ? 'text-emerald-400 font-bold' : 'text-emerald-700 font-bold'}>[+] Running 3/3</div>
+                          <div className={`grid grid-cols-[auto_1fr] gap-x-3 font-medium ${darkMode ? 'text-emerald-400' : 'text-emerald-700'}`}>
                             <span>✔ Container vdcore-db</span>
                             <span>... Started</span>
                           </div>
-                          <div className="grid grid-cols-[auto_1fr] gap-x-3 text-emerald-700 dark:text-emerald-400 font-medium">
+                          <div className={`grid grid-cols-[auto_1fr] gap-x-3 font-medium ${darkMode ? 'text-emerald-400' : 'text-emerald-700'}`}>
                             <span>✔ Container vdcore-jwt-auth</span>
                             <span>... Started</span>
                           </div>
-                          <div className="text-indigo-600 dark:text-indigo-400 font-semibold pt-0.5">
-                            &gt; Spring Boot 4 microservice online.
+                          <div className={`font-semibold pt-0.5 ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>
+                            &gt; Spring Boot microservice online.
                             <span className="inline-block w-1.5 h-3 ml-1 bg-indigo-500 animate-pulse align-baseline"></span>
                           </div>
                         </div>

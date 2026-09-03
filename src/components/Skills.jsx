@@ -44,14 +44,14 @@ export default function Skills({ darkMode }) {
         darkMode ? 'text-[#f3f4f6]' : 'text-slate-900'
       }`}>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 md:gap-5 items-stretch">
+        {/* Bento Grid sa razmakom od vrha i izjednačenim visinama */}
+        <div className="mt-3 sm:mt-4 md:mt-6 grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 md:gap-5 items-stretch">
           {skillCategories.map((cat, idx) => {
             const IconComponent = cat.icon;
             return (
               <div 
                 key={idx} 
-                className={`relative p-4.5 sm:p-5 md:p-6.5 rounded-2xl border transition-all duration-300 shadow-sm flex flex-col justify-between group overflow-hidden hover:-translate-y-1 md:hover:-translate-y-1 ${
+                className={`relative p-5 sm:p-6 md:p-7 rounded-3xl border transition-all duration-300 shadow-sm flex flex-col justify-between group overflow-hidden hover:-translate-y-1 md:hover:-translate-y-1 ${
                   cat.isHero ? 'md:col-span-3' : 'md:col-span-1'
                 } ${
                   darkMode 
@@ -75,14 +75,14 @@ export default function Skills({ darkMode }) {
                       </h3>
                     </div>
 
-                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center border shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shrink-0 ${
+                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center border shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shrink-0 ${
                       darkMode ? 'bg-indigo-500/15 border-indigo-500/40 text-indigo-300 shadow-[0_0_20px_rgba(99,102,241,0.25)]' : 'bg-indigo-50 border-indigo-200 text-indigo-600'
                     }`}>
                       <IconComponent className="w-5 h-5 md:w-5 md:h-5" />
                     </div>
                   </div>
 
-                  <p className={`text-xs sm:text-sm md:text-[0.93rem] font-medium leading-relaxed mb-4 md:mb-4.5 relative z-10 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
+                  <p className={`text-xs sm:text-sm md:text-[0.93rem] font-medium leading-relaxed mb-4 md:mb-5 relative z-10 ${darkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                     {cat.desc}
                   </p>
                 </div>
