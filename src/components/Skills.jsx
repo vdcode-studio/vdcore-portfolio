@@ -63,16 +63,17 @@ export default function Skills({ darkMode }) {
             return (
               <div 
                 key={idx} 
-                className={`relative p-5 sm:p-6 md:p-7 rounded-3xl transition-all duration-500 shadow-xl flex flex-col justify-between group overflow-hidden hover:-translate-y-1 ${
+                className={`relative p-5 sm:p-6 md:p-7 rounded-3xl transition-all duration-500 flex flex-col justify-between group overflow-hidden hover:-translate-y-1 ${
                   cat.isHero ? 'md:col-span-3' : 'md:col-span-1'
                 } ${
                   darkMode 
-                    ? 'bg-[#090a0f]/80 backdrop-blur-xl border border-white/[0.08] hover:border-indigo-500/50 shadow-[0_8px_30px_rgb(0_0_0/0.5)] hover:shadow-[0_20px_40px_rgba(99,102,241,0.15)]' 
-                    : 'bg-white/80 backdrop-blur-xl border border-slate-200/80 hover:border-indigo-300 shadow-[0_8px_30px_rgb(0_0_0/0.04)] hover:shadow-[0_20px_40px_rgba(99,102,241,0.08)]'
+                    ? 'bg-[#0b0c14] border border-white/[0.12] hover:border-indigo-500/60 shadow-[0_10px_30px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.1)] hover:shadow-[0_20px_40px_rgba(99,102,241,0.2)]' 
+                    : 'bg-white/90 backdrop-blur-xl border border-slate-200/90 hover:border-indigo-400 shadow-[0_10px_30px_rgba(99,102,241,0.1),inset_0_1px_0_rgba(255,255,255,1)] hover:shadow-[0_20px_40px_rgba(99,102,241,0.18)]'
                 }`}
               >
+                {/* Pozadinski glow na hover */}
                 {darkMode && (
-                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/20 transition-all duration-700"></div>
+                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none group-hover:bg-indigo-500/30 transition-all duration-700"></div>
                 )}
 
                 {/* Cards Content */}
@@ -88,7 +89,7 @@ export default function Skills({ darkMode }) {
                     </div>
 
                     <div className={`w-10 h-10 md:w-12 md:h-12 rounded-2xl flex items-center justify-center border shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shrink-0 ${
-                      darkMode ? 'bg-indigo-500/15 border-indigo-500/40 text-indigo-300 shadow-[0_0_20px_rgba(99,102,241,0.25)]' : 'bg-indigo-50 border-indigo-200 text-indigo-600'
+                      darkMode ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-200 shadow-[0_0_20px_rgba(99,102,241,0.3)]' : 'bg-indigo-50 border-indigo-200 text-indigo-600'
                     }`}>
                       <IconComponent className="w-5 h-5 md:w-5 md:h-5" />
                     </div>
@@ -99,13 +100,13 @@ export default function Skills({ darkMode }) {
                   </p>
                 </div>
 
-                {/* Tags */}
-                <div className={`flex flex-wrap gap-1.5 md:gap-2 pt-3.5 md:pt-4 border-t relative z-10 mt-auto ${darkMode ? 'border-white/[0.06]' : 'border-slate-100'}`}>
+                {/* Tags sa jasnim kontrastom */}
+                <div className={`flex flex-wrap gap-1.5 md:gap-2 pt-3.5 md:pt-4 border-t relative z-10 mt-auto ${darkMode ? 'border-white/[0.08]' : 'border-slate-100'}`}>
                   {cat.tags.map((tech, i) => (
                     <span key={i} className={`text-[11px] sm:text-xs font-mono font-semibold px-2.5 py-1 md:px-3 md:py-1.5 rounded-xl border transition-all duration-300 ${
                       darkMode 
-                        ? 'border-white/[0.08] bg-[#0d0e15] text-slate-200 group-hover:border-indigo-400/50 group-hover:bg-indigo-500/15 group-hover:shadow-[0_0_10px_rgba(99,102,241,0.2)]' 
-                        : 'border-slate-200/80 bg-slate-50/80 text-indigo-900 group-hover:border-indigo-300 group-hover:bg-indigo-50'
+                        ? 'border-white/[0.1] bg-[#13141f] text-slate-200 group-hover:border-indigo-400/60 group-hover:bg-indigo-500/20 group-hover:shadow-[0_0_12px_rgba(99,102,241,0.25)]' 
+                        : 'border-slate-200 bg-slate-50 text-indigo-900 group-hover:border-indigo-300 group-hover:bg-indigo-50'
                     }`}>
                       {tech}
                     </span>
