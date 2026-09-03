@@ -88,7 +88,7 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                   : 'bg-gradient-to-tr from-indigo-500/40 via-purple-500/30 to-slate-900/25 opacity-70 blur-3xl group-hover:opacity-90'
               }`}></div>
               
-              <div className={`relative w-36 h-36 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-[2.2rem] bg-[#000000] overflow-hidden shrink-0 transition-all duration-500 group-hover:scale-[1.03] ${
+              <div className={`relative w-36 h-36 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-[2.8rem] bg-[#000000] overflow-hidden shrink-0 transition-all duration-500 group-hover:scale-[1.03] ${
                 darkMode 
                   ? 'shadow-[0_12px_45px_-10px_rgba(0,0,0,0.85),0_0_25px_rgba(139,92,241,0.25)] border border-indigo-500/30' 
                   : 'shadow-[0_15px_35px_rgba(99,102,241,0.2)] border border-indigo-300/80 bg-white'
@@ -97,16 +97,17 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
               </div>
             </div>
 
-            <div className={`hidden md:flex mt-3 sm:mt-4 md:mt-5 w-full max-w-[170px] sm:max-w-[260px] md:max-w-[290px] p-2 sm:p-3 md:p-3.5 rounded-xl sm:rounded-2xl border backdrop-blur-xl text-center flex-col items-center justify-center transition-all duration-300 ${
+            {/* DONJI BADGE SA SUPTILNIM, ŠMEKERSKIM POMAKOM */}
+            <div className={`hidden md:flex mt-3 sm:mt-4 md:mt-5 w-full max-w-[170px] sm:max-w-[260px] md:max-w-[290px] p-3 sm:p-3.5 md:p-4 rounded-[2rem] border backdrop-blur-xl text-center flex-col items-center justify-center transition-all duration-300 ${
               darkMode 
-                ? 'border-indigo-500/30 bg-[#12141c]/40 text-[#f3f4f6] shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.12)]' 
-                : 'border-indigo-200/90 bg-white/60 text-slate-800 shadow-[0_6px_16px_rgba(99,102,241,0.08),inset_0_1px_0_rgba(255,255,255,0.8)]'
+                ? 'border-indigo-500/35 bg-[#12141c]/60 text-[#f3f4f6] shadow-[0_12px_35px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.1)]' 
+                : 'border-indigo-300 bg-white text-slate-900 shadow-[0_10px_30px_rgba(99,102,241,0.15),inset_0_1px_0_rgba(255,255,255,1)]'
             }`}>
-              <span className="text-[9px] sm:text-[10px] md:text-[11px] font-mono uppercase tracking-widest text-indigo-400 font-bold mb-0.5">
-                <span className="text-indigo-500 font-bold mr-1">&gt;_</span>Hi, I am
-              </span>
+              <div className="flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] md:text-xs font-mono uppercase tracking-widest text-indigo-400 font-bold mb-1 -ml-3">
+                <span>&gt;_ Hi, I am</span>
+              </div>
               
-              <div className="font-mono text-xs sm:text-base md:text-lg font-bold tracking-tight inline-flex items-center gap-1.5">
+              <div className="font-mono text-base sm:text-lg md:text-xl font-extrabold tracking-tight pl-3">
                 <span className={darkMode ? 'text-[#f3f4f6]' : 'text-slate-900'}>Vladimir</span>
               </div>
             </div>
@@ -135,7 +136,7 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
               }`}>
                   DevOps Engineer.
              </span>
-            </h1>
+           </h1>
 
             <div className="w-full max-w-xl h-[1.5px] bg-gradient-to-r from-transparent via-indigo-500/70 to-transparent rounded-full my-1 mx-auto"></div>
             
