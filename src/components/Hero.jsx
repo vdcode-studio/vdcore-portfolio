@@ -302,14 +302,14 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                   <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Projects</div>
                 </div>
 
-                <div className={`w-[1px] h-9 ${darkMode ? 'bg-indigo-500/25' : 'bg-indigo-200'}`}></div>
+                <div className={`h-9 border-l ${darkMode ? 'border-indigo-500/25' : 'border-indigo-200'}`}></div>
 
                 <div className="text-center">
                   <div className={`text-xl font-extrabold leading-none mb-1.5 ${darkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>100%</div>
                   <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Focused</div>
                 </div>
 
-                <div className={`w-[1px] h-9 ${darkMode ? 'bg-indigo-500/25' : 'bg-indigo-200'}`}></div>
+                <div className={`h-9 border-l ${darkMode ? 'border-indigo-500/25' : 'border-indigo-200'}`}></div>
 
                 <div className="text-center">
                   <div className={`text-xl font-extrabold leading-none mb-1.5 ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>24/7</div>
