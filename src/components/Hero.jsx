@@ -44,7 +44,7 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
         
         <div className="w-full flex flex-col md:grid md:grid-cols-12 gap-5 sm:gap-6 md:gap-12 items-center relative z-10">
           
-          {/* MOBILNI PROFILE HEADER */}
+          {/* MOBILNI PROFILE HEADER (NETAKNUTO - STARO STANJE) */}
           <div className="flex md:hidden items-center gap-4.5 w-full justify-start pt-0">
             <div className="relative flex justify-center items-center shrink-0">
               <div className={`absolute w-28 h-28 rounded-full blur-2xl pointer-events-none ${
@@ -74,12 +74,12 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                   : 'bg-indigo-50 border-indigo-200/90 text-indigo-700'
               }`}>
                 <Sparkles className="w-3.5 h-3.5 animate-spin text-indigo-500 shrink-0" />
-                <span className="text-[10px] font-bold tracking-wide uppercase">Available for roles</span>
+                <span className="text-[10px] font-bold tracking-wide uppercase">Available for hire</span>
               </div>
             </div>
           </div>
 
-          {/* PC PICTURE & BADGE */}
+          {/* PC PICTURE (ČISTA I CENTRIRANA) */}
           <div className="hidden md:flex w-full md:col-span-5 md:pl-16 flex-col items-center md:items-center order-first md:order-last group">
             <div className="relative w-full flex justify-center items-center">
               <div className={`absolute w-32 h-32 sm:w-52 sm:h-52 md:w-auto md:h-auto md:inset-[-14px] rounded-[2.5rem] pointer-events-none transition duration-1000 ${
@@ -96,33 +96,21 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                 <img src="/avatar.JPG" alt="Vladimir Dejanovic" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
             </div>
-
-            {/* DONJI BADGE SA SUPTILNIM, ŠMEKERSKIM POMAKOM */}
-            <div className={`hidden md:flex mt-3 sm:mt-4 md:mt-5 w-full max-w-[170px] sm:max-w-[260px] md:max-w-[290px] p-3 sm:p-3.5 md:p-4 rounded-[2rem] border backdrop-blur-xl text-center flex-col items-center justify-center transition-all duration-300 ${
-              darkMode 
-                ? 'border-indigo-500/35 bg-[#12141c]/60 text-[#f3f4f6] shadow-[0_12px_35px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.1)]' 
-                : 'border-indigo-300 bg-white text-slate-900 shadow-[0_10px_30px_rgba(99,102,241,0.15),inset_0_1px_0_rgba(255,255,255,1)]'
-            }`}>
-              <div className="flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] md:text-xs font-mono uppercase tracking-widest text-indigo-400 font-bold mb-1 -ml-3">
-                <span>&gt;_ Hi, I am</span>
-              </div>
-              
-              <div className="font-mono text-base sm:text-lg md:text-xl font-extrabold tracking-tight pl-3">
-                <span className={darkMode ? 'text-[#f3f4f6]' : 'text-slate-900'}>Vladimir</span>
-              </div>
-            </div>
           </div>
           
           {/* TEXT & TERMINAL AREA */}
           <div className="w-full md:col-span-7 md:pr-6 flex flex-col gap-4 sm:gap-4 md:gap-5 text-center md:text-left items-center md:items-start mt-0 md:mt-0">
             
+            {/* PC UVODNI BEDŽ SA VELIKIM SLOVIMA ZA VLADIMIR */}
             <div className={`hidden md:inline-flex font-mono items-center gap-2 px-4 py-2 rounded-full border shadow-sm backdrop-blur-sm ${
               darkMode 
                 ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-300' 
                 : 'bg-indigo-50 border-indigo-200 text-indigo-700'
             }`}>
                <Sparkles className="w-3.5 h-3.5 animate-spin text-indigo-500 shrink-0" />
-               <span className="text-xs font-bold tracking-wide">Available for professional roles</span>
+               <span className="text-xs font-bold tracking-wide">
+                 &gt;_ Hi, I am <span className={darkMode ? 'text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 font-black' : 'text-slate-900 font-black'}>VLADIMIR</span>
+               </span>
             </div>
 
            <h1 className={`text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight w-full max-w-xl text-center md:text-center mx-auto ${
@@ -177,23 +165,20 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                 
                 <div className={`flex items-center gap-2.5 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
                   {/* MINIMIZE */}
-                  <Minus 
-                    onClick={() => setIsMinimized(true)} 
-                    title="Minimize" 
-                    className="w-3 h-3 hover:text-indigo-500 hover:scale-125 transition-all duration-200 cursor-pointer" 
-                  />
+                  <button onClick={() => setIsMinimized(true)} title="Minimize" className="cursor-pointer">
+                    <span className="inline-block sm:hidden w-3 h-3 rounded-full bg-amber-500/80 hover:opacity-100"></span>
+                    <Minus className="hidden sm:inline-block w-3 h-3 hover:text-indigo-500 hover:scale-125 transition-all" />
+                  </button>
                   {/* MAXIMIZE */}
-                  <Square 
-                    onClick={handleMaximize} 
-                    title="Maximize / Restore" 
-                    className="w-2.5 h-2.5 hover:text-indigo-500 hover:scale-125 transition-all duration-200 cursor-pointer" 
-                  />
-                  {/* X */}
-                  <X 
-                    onClick={handleTerminalClose} 
-                    title="Close process" 
-                    className="w-3 h-3 hover:text-red-500 hover:scale-125 hover:rotate-90 transition-all duration-200 cursor-pointer" 
-                  />
+                  <button onClick={handleMaximize} title="Maximize / Restore" className="cursor-pointer">
+                    <span className="inline-block sm:hidden w-3 h-3 rounded-full bg-emerald-500/80 hover:opacity-100"></span>
+                    <Square className="hidden sm:inline-block w-2.5 h-2.5 hover:text-indigo-500 hover:scale-125 transition-all" />
+                  </button>
+                  {/* X / CLOSE */}
+                  <button onClick={handleTerminalClose} title="Close process" className="cursor-pointer">
+                    <span className="inline-block sm:hidden w-3 h-3 rounded-full bg-red-500/80 hover:opacity-100"></span>
+                    <X className="hidden sm:inline-block w-3 h-3 hover:text-red-500 hover:scale-125 hover:rotate-90 transition-all" />
+                  </button>
                 </div>
               </div>
 
@@ -314,6 +299,17 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                   <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Ready</div>
                 </div>
               </div>
+            </div>
+
+            {/* AVAILABLE FOR HIRE STATUS BAR */}
+            <div className="hidden md:flex items-center gap-2 font-mono text-xs w-full max-w-xl mx-auto pt-1">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span className={darkMode ? 'text-slate-400 font-medium' : 'text-slate-600 font-semibold'}>
+                Status: <span className={darkMode ? 'text-emerald-400 font-bold' : 'text-emerald-600 font-bold'}>Available for hire</span> (Open for backend & DevOps roles)
+              </span>
             </div>
 
           </div>
