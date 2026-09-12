@@ -58,7 +58,7 @@ export default function Navbar({ activeMobileSection, setActiveMobileSection, da
                 <img 
                   src={darkMode ? "/darklogo1.png" : "/lightlogo1.png"} 
                   alt="VDCore Logo" 
-                  className="h-10 sm:h-12 md:h-11 max-h-[44px] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+                  className="h-9 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
                 />
              </a>
           </div>
@@ -114,7 +114,7 @@ export default function Navbar({ activeMobileSection, setActiveMobileSection, da
                  darkMode 
                    ? 'border-indigo-500/35 bg-[#12131c] text-amber-400 shadow-[0_2px_8px_rgba(0,0,0,0.5)]' 
                    : 'border-indigo-400/40 bg-[#faf9fc] text-slate-700 shadow-[0_2px_8px_rgba(99,102,241,0.06)]'
-               }`}
+                }`}
                title="Toggle Theme"
              >
                <div className="relative w-4 h-4 flex items-center justify-center">
