@@ -44,19 +44,19 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
         
         <div className="w-full flex flex-col md:grid md:grid-cols-12 gap-5 sm:gap-6 md:gap-12 items-center relative z-10">
           
-          {/* MOBILNI PROFILE HEADER (NETAKNUTO - STARO STANJE) */}
+          {/* MOBILNI PROFILE HEADER */}
           <div className="flex md:hidden items-center gap-4.5 w-full justify-start pt-0">
             <div className="relative flex justify-center items-center shrink-0">
-              <div className={`absolute w-28 h-28 rounded-full blur-2xl pointer-events-none ${
+              <div className={`absolute inset-0 rounded-full blur-xl pointer-events-none scale-90 ${
                 darkMode 
-                  ? 'bg-gradient-to-tr from-indigo-600/50 via-purple-600/40 to-pink-500/30' 
-                  : 'bg-black/10'
+                  ? 'bg-gradient-to-tr from-indigo-600/70 via-purple-600/50 to-pink-500/40' 
+                  : 'bg-black/15'
               }`}></div>
               
               <div className={`relative rounded-full overflow-hidden shrink-0 ${
                 darkMode 
-                  ? 'shadow-[0_8px_25px_rgba(0,0,0,0.8),0_0_15px_rgba(99,102,241,0.3)]' 
-                  : 'shadow-[0_10px_25px_rgba(0,0,0,0.2)]'
+                  ? 'shadow-[0_8px_25px_rgba(0,0,0,0.8),0_0_15px_rgba(99,102,241,0.3)] border border-indigo-500/30' 
+                  : 'shadow-[0_10px_25px_rgba(0,0,0,0.2)] border border-indigo-300/60'
               }`} style={{ width: '6.5rem', height: '6.5rem' }}>
                 <img src="/avatar.JPG" alt="Vladimir Dejanovic" className="w-full h-full object-cover" />
               </div>
@@ -74,12 +74,12 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                   : 'bg-indigo-50 border-indigo-200/90 text-indigo-700'
               }`}>
                 <Sparkles className="w-3.5 h-3.5 animate-spin text-indigo-500 shrink-0" />
-                <span className="text-[10px] font-bold tracking-wide uppercase">Available for hire</span>
+                <span className="text-[10px] font-bold tracking-wide uppercase">Available for hire.</span>
               </div>
             </div>
           </div>
 
-          {/* PC PICTURE (ČISTA I CENTRIRANA) */}
+          {/* PC PICTURE */}
           <div className="hidden md:flex w-full md:col-span-5 md:pl-16 flex-col items-center md:items-center order-first md:order-last group">
             <div className="relative w-full flex justify-center items-center">
               <div className={`absolute w-32 h-32 sm:w-52 sm:h-52 md:w-auto md:h-auto md:inset-[-14px] rounded-[2.5rem] pointer-events-none transition duration-1000 ${
@@ -101,7 +101,7 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
           {/* TEXT & TERMINAL AREA */}
           <div className="w-full md:col-span-7 md:pr-6 flex flex-col gap-4 sm:gap-4 md:gap-5 text-center md:text-left items-center md:items-start mt-0 md:mt-0">
             
-            {/* PC UVODNI BEDŽ SA VELIKIM SLOVIMA ZA VLADIMIR */}
+            {/* PC UVODNI BEDŽ */}
             <div className={`hidden md:inline-flex font-mono items-center gap-2 px-4 py-2 rounded-full border shadow-sm backdrop-blur-sm ${
               darkMode 
                 ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-300' 
@@ -135,7 +135,6 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                 : 'border-indigo-300/80 bg-white text-slate-900 shadow-[0_6px_20px_rgba(99,102,241,0.08),inset_0_1px_0_rgba(255,255,255,1)]'
             } ${isGlitching ? 'ring-2 ring-indigo-500 scale-[1.03] rotate-[0.5deg]' : ''}`}>
               
-              {/* Header with commands */}
               <div className={`px-3.5 py-2.5 flex items-center justify-between border-b ${
                 darkMode ? 'border-indigo-500/25 bg-[#12131c]/80' : 'border-indigo-200/85 bg-indigo-100/80'
               }`}>
@@ -164,17 +163,14 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                 </div>
                 
                 <div className={`flex items-center gap-2.5 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>
-                  {/* MINIMIZE */}
                   <button onClick={() => setIsMinimized(true)} title="Minimize" className="cursor-pointer">
                     <span className="inline-block sm:hidden w-3 h-3 rounded-full bg-amber-500/80 hover:opacity-100"></span>
                     <Minus className="hidden sm:inline-block w-3 h-3 hover:text-indigo-500 hover:scale-125 transition-all" />
                   </button>
-                  {/* MAXIMIZE */}
                   <button onClick={handleMaximize} title="Maximize / Restore" className="cursor-pointer">
                     <span className="inline-block sm:hidden w-3 h-3 rounded-full bg-emerald-500/80 hover:opacity-100"></span>
                     <Square className="hidden sm:inline-block w-2.5 h-2.5 hover:text-indigo-500 hover:scale-125 transition-all" />
                   </button>
-                  {/* X / CLOSE */}
                   <button onClick={handleTerminalClose} title="Close process" className="cursor-pointer">
                     <span className="inline-block sm:hidden w-3 h-3 rounded-full bg-red-500/80 hover:opacity-100"></span>
                     <X className="hidden sm:inline-block w-3 h-3 hover:text-red-500 hover:scale-125 hover:rotate-90 transition-all" />
@@ -182,7 +178,6 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                 </div>
               </div>
 
-              {/* TERMINAL CONTENT */}
               <div className={`p-3.5 sm:p-4 text-xs sm:text-xs md:text-sm font-mono leading-relaxed transition-all duration-300 overflow-hidden flex flex-col justify-center ${
                 isMinimized ? 'max-h-0 py-0 opacity-0' : 'h-[115px] sm:h-[125px] opacity-100'
               }`}>
@@ -199,12 +194,10 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
                           <span className={darkMode ? 'text-slate-200' : 'text-slate-900'}>vdcore --about</span>
                         </div>
                         <p className={`font-mono leading-relaxed ${darkMode ? 'text-slate-300' : 'text-slate-700'}`}>
-                          {/* Mobile */}
                           <span className="block sm:hidden">
                             Certified Java Developer focused on scalable backend architecture, REST APIs, AI service integration, & containerized DevOps workflows...<span className="inline-block w-2 h-3.5 ml-1 bg-indigo-500 animate-pulse align-baseline"></span>
                           </span>
 
-                          {/* PC */}
                           <span className="hidden sm:inline">
                             Certified Java Developer focused on scalable backend<br />
                             architecture, REST APIs, AI service integration,<br />
@@ -243,20 +236,20 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
             </div>
 
             {/* PORTFOLIO STATS - MOBILE */}
-            <div className="flex md:hidden w-full max-w-xl items-center justify-around pt-4 pb-2 mx-auto font-mono text-center">
+            <div className="flex md:hidden w-full max-w-xl items-center justify-around pt-3 pb-2 mx-auto font-mono text-center">
               <div>
                 <div className={`text-base font-extrabold ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>12+</div>
-                <div className={`text-[10px] uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Projects</div>
+                <div className={`text-[10px] uppercase tracking-wider ${darkMode ? 'text-slate-500 font-medium' : 'text-slate-600 font-semibold'}`}>Projects</div>
               </div>
               <div className={`w-[1px] h-6 ${darkMode ? 'bg-indigo-500/20' : 'bg-indigo-200'}`}></div>
               <div>
                 <div className={`text-base font-extrabold ${darkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>100%</div>
-                <div className={`text-[10px] uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Focused</div>
+                <div className={`text-[10px] uppercase tracking-wider ${darkMode ? 'text-slate-500 font-medium' : 'text-slate-600 font-semibold'}`}>Focused</div>
               </div>
               <div className={`w-[1px] h-6 ${darkMode ? 'bg-indigo-500/20' : 'bg-indigo-200'}`}></div>
               <div>
                 <div className={`text-base font-extrabold ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>24/7</div>
-                <div className={`text-[10px] uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Ready</div>
+                <div className={`text-[10px] uppercase tracking-wider ${darkMode ? 'text-slate-500 font-medium' : 'text-slate-600 font-semibold'}`}>Ready</div>
               </div>
             </div>
 
@@ -280,35 +273,36 @@ export default function Hero({ setActiveMobileSection, darkMode }) {
               </div>
 
               <div className="flex items-center justify-center flex-1 gap-8 font-mono">
-                <div className="text-center">
-                  <div className={`text-xl font-extrabold leading-none mb-1.5 ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>12+</div>
-                  <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Projects</div>
+                <div className="text-center group/stat cursor-default">
+                  <div className={`text-xl font-extrabold leading-none mb-1.5 transition-transform duration-200 group-hover/stat:scale-110 ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>12+</div>
+                  <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-500 font-medium' : 'text-slate-600 font-semibold'}`}>Projects</div>
                 </div>
 
                 <div className={`h-9 border-l-2 ${darkMode ? 'border-indigo-500/25' : 'border-indigo-200'}`}></div>
 
-                <div className="text-center">
-                  <div className={`text-xl font-extrabold leading-none mb-1.5 ${darkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>100%</div>
-                  <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Focused</div>
+                <div className="text-center group/stat cursor-default">
+                  <div className={`text-xl font-extrabold leading-none mb-1.5 transition-transform duration-200 group-hover/stat:scale-110 ${darkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>100%</div>
+                  <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-500 font-medium' : 'text-slate-600 font-semibold'}`}>Focused</div>
                 </div>
 
-                <div className={`h-9 border-l-2 ${darkMode ? 'border-indigo-500/25' : 'border-indigo-200'}`}></div>
+                <div className="h-9 border-l-2 border-indigo-500/25"></div>
 
-                <div className="text-center">
-                  <div className={`text-xl font-extrabold leading-none mb-1.5 ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>24/7</div>
-                  <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-400' : 'text-slate-700 font-semibold'}`}>Ready</div>
+                <div className="text-center group/stat cursor-default">
+                  <div className={`text-xl font-extrabold leading-none mb-1.5 transition-transform duration-200 group-hover/stat:scale-110 ${darkMode ? 'text-indigo-400' : 'text-indigo-600'}`}>24/7</div>
+                  <div className={`text-xs uppercase tracking-wider ${darkMode ? 'text-slate-500 font-medium' : 'text-slate-600 font-semibold'}`}>Ready</div>
                 </div>
               </div>
             </div>
 
             {/* AVAILABLE FOR HIRE STATUS BAR */}
             <div className="hidden md:flex items-center gap-2 font-mono text-xs w-full max-w-xl mx-auto pt-1">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+                <span className="absolute inline-flex h-4 w-4 rounded-full border border-emerald-500/50 animate-pulse"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <span className={darkMode ? 'text-slate-400 font-medium' : 'text-slate-600 font-semibold'}>
-                Status: <span className={darkMode ? 'text-emerald-400 font-bold' : 'text-emerald-600 font-bold'}>Available for hire</span> (Open for backend & DevOps roles)
+                Status: <span className={darkMode ? 'text-emerald-400 font-bold' : 'text-emerald-600 font-bold'}>Available for hire.</span>
               </span>
             </div>
 
